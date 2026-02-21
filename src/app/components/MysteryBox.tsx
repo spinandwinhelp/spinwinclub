@@ -173,12 +173,6 @@ export function MysteryBox() {
   const { points, deductPoints, addPoints, addWin } = useApp();
   const [prize, setPrize] = useState<Prize | null>(null);
   const [phase, setPhase] = useState<Phase>('idle');
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1200);
-    return () => clearTimeout(timer);
-  }, []);
 
   // Award prize when revealed
   useEffect(() => {
@@ -216,22 +210,7 @@ export function MysteryBox() {
     setPrize(null);
   };
 
-  // ─── Skeleton loader ────────────────────────────────────────────────────────
-  if (isLoading) {
-    return (
-      <div className="px-4 pt-6 space-y-5">
-        <div className="flex items-center justify-between mb-8">
-          <div className="space-y-2">
-            <div className="w-20 h-3 rounded animate-pulse" style={{ background: 'var(--bg-surface-elevated)' }} />
-            <div className="w-36 h-6 rounded animate-pulse" style={{ background: 'var(--bg-surface-elevated)' }} />
-          </div>
-          <div className="w-24 h-10 rounded-2xl animate-pulse" style={{ background: 'var(--bg-surface-elevated)' }} />
-        </div>
-        <div className="w-full h-[360px] rounded-3xl animate-pulse" style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-color)' }} />
-        <div className="w-full h-48 rounded-3xl animate-pulse" style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-color)' }} />
-      </div>
-    );
-  }
+
 
   return (
     <div className="px-4 pt-6 space-y-5 relative z-10">
@@ -361,7 +340,6 @@ export function MysteryBox() {
                   className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-48 h-8 rounded-full pointer-events-none"
                   style={{
                     background: phase === 'revealed' ? `radial-gradient(ellipse, ${prize.color.startsWith('var(') ? '#00FFA3' : prize.color}40, transparent)` : 'radial-gradient(ellipse, rgba(0, 0, 0, 0.05), transparent)',
-                    filter: 'blur(12px)',
                   }}
                   animate={{ opacity: [0.4, 0.8, 0.4] }}
                   transition={{ duration: 2, repeat: Infinity }}

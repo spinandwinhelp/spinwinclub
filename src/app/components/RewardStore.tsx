@@ -88,9 +88,6 @@ export function RewardStore() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selected, setSelected] = useState<(typeof REWARDS)[0] | null>(null);
   const [redeemed, setRedeemed] = useState<number[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const filtered = activeCategory === 'All' ? REWARDS : REWARDS.filter(r => r.category === activeCategory);
 
   const handleRedeem = (reward: typeof REWARDS[0]) => {
     if (!deductPoints(reward.cost)) {
@@ -105,44 +102,7 @@ export function RewardStore() {
 
   const canAfford = (cost: number) => points >= cost;
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading) {
-    return (
-      <div className="px-4 pt-6 space-y-4">
-        {/* Header Skeleton */}
-        <div className="flex items-center justify-between mb-8">
-          <div className="space-y-2">
-            <div className="w-16 h-3 rounded animate-pulse" style={{ background: 'var(--bg-surface-elevated)' }} />
-            <div className="w-32 h-6 rounded animate-pulse" style={{ background: 'var(--bg-surface-elevated)' }} />
-          </div>
-          <div className="w-24 h-10 rounded-2xl animate-pulse" style={{ background: 'var(--bg-surface-elevated)' }} />
-        </div>
-
-        {/* Progress Skeleton */}
-        <div className="w-full h-24 rounded-2xl animate-pulse mb-6" style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-color)' }} />
-
-        {/* Categories Skeleton */}
-        <div className="flex gap-2 mb-6">
-          {[1, 2, 3, 4].map(i => (
-            <div key={i} className="w-20 h-9 rounded-xl animate-pulse" style={{ background: 'var(--bg-surface-elevated)' }} />
-          ))}
-        </div>
-
-        {/* Grid Skeleton */}
-        <div className="grid grid-cols-2 gap-3">
-          {[1, 2, 3, 4, 5, 6].map(i => (
-            <div key={i} className="w-full h-40 rounded-3xl animate-pulse" style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-color)' }} />
-          ))}
-        </div>
-      </div>
-    );
-  }
+  const filtered = activeCategory === 'All' ? REWARDS : REWARDS.filter(r => r.category === activeCategory);
 
   return (
     <div className="px-4 pt-6 space-y-4 relative z-10">

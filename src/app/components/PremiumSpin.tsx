@@ -91,7 +91,6 @@ export function PremiumSpin() {
   const [spinning, setSpinning] = useState(false);
   const [result, setResult] = useState<(typeof PRIZES)[0] | null>(null);
   const [showOdds, setShowOdds] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const rotRef = useRef(0);
   const COST = 500;
 
@@ -120,31 +119,6 @@ export function PremiumSpin() {
       incrementSpins();
     }, 4500);
   };
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1200);
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading) {
-    return (
-      <div className="px-4 pt-6 space-y-4">
-        <div className="flex items-center justify-between mb-8">
-          <div className="space-y-2">
-            <div className="w-16 h-3 rounded animate-pulse" style={{ background: 'var(--bg-surface-elevated)' }} />
-            <div className="w-32 h-6 rounded animate-pulse" style={{ background: 'var(--bg-surface-elevated)' }} />
-          </div>
-          <div className="w-24 h-10 rounded-2xl animate-pulse" style={{ background: 'var(--bg-surface-elevated)' }} />
-        </div>
-        <div className="flex flex-col items-center justify-center mt-12 space-y-8">
-          <div className="w-[300px] h-[300px] rounded-full animate-pulse" style={{ background: 'var(--bg-surface)', border: '4px solid var(--border-color)' }} />
-          <div className="w-48 h-14 rounded-2xl animate-pulse" style={{ background: 'var(--bg-surface-elevated)' }} />
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="px-4 pt-6 space-y-4 relative z-10">
@@ -223,8 +197,7 @@ export function PremiumSpin() {
           className="absolute inset-0 rounded-full pointer-events-none"
           style={{
             background: 'radial-gradient(circle, var(--color-primary) 0%, transparent 70%)',
-            opacity: 0.08,
-            filter: 'blur(20px)',
+            opacity: 0.15,
           }}
         />
 

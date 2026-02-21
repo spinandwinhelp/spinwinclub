@@ -117,7 +117,7 @@ export function Dashboard() {
         }}
       >
         <div className="absolute top-0 right-0 w-64 h-64 rounded-full pointer-events-none"
-          style={{ background: 'var(--color-primary)', opacity: 0.05, filter: 'blur(80px)' }} />
+          style={{ background: 'radial-gradient(circle, var(--color-primary) 0%, transparent 70%)', opacity: 0.15 }} />
         <div className="p-6 relative z-10">
           <div className="flex items-start justify-between mb-4">
             <div>
@@ -221,7 +221,7 @@ export function Dashboard() {
           }}
           onClick={() => navigate('/spin')}
         >
-          <div className="absolute top-0 right-0 w-32 h-32 rounded-full pointer-events-none" style={{ background: 'var(--color-secondary)', opacity: 0.05, filter: 'blur(40px)' }} />
+          <div className="absolute top-0 right-0 w-32 h-32 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, var(--color-secondary) 0%, transparent 70%)', opacity: 0.15 }} />
           <div className="absolute top-3 right-3">
             <Zap size={14} style={{ color: 'var(--color-secondary)' }} />
           </div>
