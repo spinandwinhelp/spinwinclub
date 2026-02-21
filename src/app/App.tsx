@@ -6,7 +6,7 @@ import { AppProvider } from './context/AppContext';
 
 export default function App() {
   return (
-    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
       <AppProvider>
         <RouterProvider router={router} />
         <Toaster
