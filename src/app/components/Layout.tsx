@@ -9,7 +9,10 @@ export function Layout() {
     <div className="min-h-screen flex" style={{ background: 'var(--bg-main)' }}>
       <MeshBackground />
       <Sidebar />
-      <div className="flex-1 md:ml-[280px] min-h-screen relative z-10 overflow-y-auto pb-24 md:pb-0">
+      <div
+        className="flex-1 md:ml-[280px] min-h-screen relative z-10 overflow-y-auto pb-24 md:pb-0"
+        style={{ WebkitOverflowScrolling: 'touch' }}
+      >
         <TopBar />
         <div className="w-full max-w-4xl mx-auto md:pb-10">
           <Outlet />

@@ -123,9 +123,6 @@ export function Leaderboard() {
               <motion.div
                 key={user.rank}
                 className="flex flex-col items-center"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.15 }}
               >
                 {/* Avatar */}
                 <div className="relative mb-2">
@@ -233,9 +230,6 @@ export function Leaderboard() {
                 borderColor: isMe ? 'var(--color-secondary)' : 'var(--border-color)',
                 boxShadow: isMe ? 'var(--shadow-elevated)' : 'none',
               }}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: i * 0.04 }}
             >
               {/* Rank */}
               <div className="w-7 text-center flex-shrink-0">

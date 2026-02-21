@@ -197,9 +197,6 @@ export function RewardStore() {
                 opacity: affordable ? 1 : 0.6,
                 boxShadow: done ? 'none' : 'var(--shadow-elevated)'
               }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: affordable ? 1 : 0.6, y: 0 }}
-              transition={{ delay: i * 0.04 }}
               whileTap={{ scale: 0.96 }}
               onClick={() => !done && setSelected(reward)}
             >
