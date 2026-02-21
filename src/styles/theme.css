@@ -1,0 +1,219 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* -- Apex Ledger (Light Theme) -- */
+  --bg-main: #FAFAFA;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #F3F4F6;
+
+  --color-primary: #00C805;
+  --color-secondary: #0052FF;
+  --color-alert: #FF3B30;
+
+  --border-color: #E5E7EB;
+  --border-highlight: rgba(0, 0, 0, 0.05);
+
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --text-muted: #9CA3AF;
+
+  /* Effects */
+  --glass-bg: rgba(255, 255, 255, 0.98);
+  --shadow-elevated: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-premium: 0 10px 15px -3px rgba(0, 82, 255, 0.1), 0 4px 6px -2px rgba(0, 82, 255, 0.05);
+  --shadow-glow: 0 0 15px rgba(0, 200, 5, 0.15);
+
+  /* Next UI Defaults mapping */
+  --background: var(--bg-main);
+  --foreground: var(--text-primary);
+  --card: var(--bg-surface);
+  --card-foreground: var(--text-primary);
+  --popover: var(--bg-surface);
+  --popover-foreground: var(--text-primary);
+  --primary: var(--color-primary);
+  --primary-foreground: #FFFFFF;
+  --secondary: var(--color-secondary);
+  --secondary-foreground: #FFFFFF;
+  --muted: var(--bg-surface-elevated);
+  --muted-foreground: var(--text-secondary);
+  --accent: var(--bg-surface-elevated);
+  --accent-foreground: var(--color-primary);
+  --destructive: var(--color-alert);
+  --destructive-foreground: #FFFFFF;
+  --border: var(--border-color);
+  --input: var(--border-color);
+  --ring: rgba(0, 200, 5, 0.3);
+  --radius: 0.75rem;
+}
+
+.dark {
+  /* -- Midnight Exchange (Dark Theme) -- */
+  --bg-main: #0B0E14;
+  --bg-surface: #151A22;
+  --bg-surface-elevated: rgba(255, 255, 255, 0.04);
+
+  --color-primary: #00FFA3;
+  --color-secondary: #FFD700;
+  --color-alert: #FF3B30;
+
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-highlight: rgba(255, 255, 255, 0.15);
+
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --text-muted: rgba(255, 255, 255, 0.3);
+
+  /* Effects */
+  --glass-bg: rgba(11, 14, 20, 0.95);
+  --shadow-elevated: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --shadow-premium: 0 0 40px rgba(255, 215, 0, 0.04);
+  --shadow-glow: 0 0 20px rgba(0, 255, 163, 0.2);
+
+  /* Next UI Defaults mapping */
+  --background: var(--bg-main);
+  --foreground: var(--text-primary);
+  --card: var(--bg-surface);
+  --card-foreground: var(--text-primary);
+  --popover: var(--bg-surface);
+  --popover-foreground: var(--text-primary);
+  --primary: var(--color-primary);
+  --primary-foreground: #0B0E14;
+  --secondary: var(--color-secondary);
+  --secondary-foreground: #0B0E14;
+  --muted: #1E2530;
+  --muted-foreground: var(--text-secondary);
+  --accent: #151A22;
+  --accent-foreground: var(--color-primary);
+  --destructive: var(--color-alert);
+  --destructive-foreground: #FFFFFF;
+  --border: var(--border-color);
+  --input: transparent;
+  --ring: rgba(0, 255, 163, 0.4);
+}
+
+@theme inline {
+  --color-bg-main: var(--bg-main);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-elevated: var(--bg-surface-elevated);
+  --color-brand-primary: var(--color-primary);
+  --color-brand-secondary: var(--color-secondary);
+  --color-brand-alert: var(--color-alert);
+  --color-border-main: var(--border-color);
+  --color-border-high: var(--border-highlight);
+  --color-text-main: var(--text-primary);
+  --color-text-sec: var(--text-secondary);
+  --color-text-mut: var(--text-muted);
+  --color-glass: var(--glass-bg);
+
+  --color-background: var(--bg-main);
+  --color-foreground: var(--text-primary);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /**
+  * Default typography styles for HTML elements (h1-h4, p, label, button, input).
+  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
+  */
+
+  html {
+    font-size: var(--font-size);
+    background-color: var(--background);
+    color: var(--foreground);
+    @apply font-sans;
+    /* Assuming Inter is standard sans */
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Monospaced numbers class */
+  .font-numbers {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  h1 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h3 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h4 {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  label {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  button {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+  }
+}
+
+/* Base custom interactive effects */
+.magnetic-button {
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.2s;
+}
+
+.magnetic-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(0, 255, 163, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.premium-glow:hover {
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.3), inset 0 0 12px rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 215, 0, 0.5) !important;
+}
