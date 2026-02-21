@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Spin &amp; Win</string>
-    <string name="title_activity_main">Spin &amp; Win</string>
+    <string name="app_name">debug1</string>
+    <string name="title_activity_main">debug1</string>
     <string name="package_name">com.spinwin.app</string>
     <string name="custom_url_scheme">com.spinwin.app</string>
 </resources>

@@ -1,6 +1,6 @@
 {
     "appId": "com.spinwin.app",
-    "appName": "Spin & Win",
+    "appName": "debug1",
     "webDir": "dist",
     "bundledWebRuntime": false,
     "server": {
