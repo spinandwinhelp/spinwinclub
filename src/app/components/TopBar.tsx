@@ -15,7 +15,8 @@ export function TopBar() {
             style={{
                 background: 'var(--glass-bg)',
                 borderBottom: '1px solid var(--border-color)',
-                boxShadow: 'var(--shadow-elevated)'
+                boxShadow: 'var(--shadow-elevated)',
+                paddingTop: 'env(safe-area-inset-top)'
             }}>
             <div className="flex items-center justify-between px-4 py-3">
                 {/* Brand / Logo */}

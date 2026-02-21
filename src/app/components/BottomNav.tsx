@@ -12,7 +12,10 @@ const NAV_ITEMS = [
 
 export function BottomNav() {
     return (
-        <div className="fixed bottom-6 inset-x-0 z-50 md:hidden flex justify-center px-4 pb-safe pointer-events-none">
+        <div
+            className="fixed inset-x-0 z-50 md:hidden flex justify-center px-4 pointer-events-none"
+            style={{ bottom: 'calc(1.5rem + env(safe-area-inset-bottom))' }}
+        >
             <div
                 className="flex items-center justify-around px-2 py-2 backdrop-blur-2xl rounded-full w-full max-w-[380px] pointer-events-auto"
                 style={{
